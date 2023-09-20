@@ -17,40 +17,38 @@ console.log('ciao mondo');
     data() {
       return {
 
-        randomMail: [],
+        itemsMail: 10, //decido quante mail generare
 
-        listMail : false,
+        randomMail: [], //mail generate
+
       }
     },
 
     mounted() {
-        console.log('montato');
 
-        this.genMailRandom(10);
-
-        console.log(this.randomMail);
+        this.genMailRandom(this.itemsMail);
 
     }, 
 
     methods: {
 
-        genMailRandom(itemsMail) {
+        genMailRandom(itemMail) {
 
-            for (let i = 0; i < itemsMail; i++) {
+            for (let i = 0; i < itemMail; i++) {
                 
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
     
                 .then(response => {
-                    //console.log(response);
-                    this.randomMail.push(response.data.response);
+                  this.randomMail.push(response.data.response);
                 })
-        
+                
                 .catch(error => {
-                    console.log(error);
+                  console.log(error);
                 })
-            };
+              };
             
-            this.listMail = true;
+              console.log(this.randomMail);
+
         }
     }
   }).mount('#app')
