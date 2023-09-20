@@ -16,28 +16,41 @@ console.log('ciao mondo');
   createApp({
     data() {
       return {
-        randomMail: ["hill.lelia@armstrong.com", "gottlieb.dakota@yahoo.com", "alayna.connelly@hotmail.com" ],
+
+        randomMail: [],
+
+        listMail : false,
       }
     },
 
     mounted() {
         console.log('montato');
 
+        this.genMailRandom(10);
+
+        console.log(this.randomMail);
+
     }, 
 
     methods: {
 
-        genMailRandom() {
+        genMailRandom(itemsMail) {
 
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-
-            .then(response => {
-                console.log(response);
-            })
+            for (let i = 0; i < itemsMail; i++) {
+                
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
     
-            .catch(error => {
-                console.log(error);
-            })
+                .then(response => {
+                    //console.log(response);
+                    this.randomMail.push(response.data.response);
+                })
+        
+                .catch(error => {
+                    console.log(error);
+                })
+            };
+            
+            this.listMail = true;
         }
     }
   }).mount('#app')

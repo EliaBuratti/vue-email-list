@@ -11,8 +11,12 @@
 
     <style>
         li {
-            width: 20rem;
+            width: 40rem;
             margin: auto;
+        }
+
+        .eb_list .list-group-item > span {
+            width: 5rem;
         }
     </style>
 </head>
@@ -21,10 +25,15 @@
     <div id="app">
         
         
-        <div class="container text-center mt-5">
-                <ul v-for="mail in randomMail" class="list-group">
-                    <li class="list-group-item">{{ mail }}</li>
-                </ul>    
+        <div class="container mt-5">
+            <div class="eb_list">
+                <ol v-show="listMail" v-for="(mail, index) in randomMail" class="list-group">
+                    <li class="list-group-item d-flex">
+                        <span> N° {{index + 1}}</span>
+                        <span>{{ mail }}</span>
+                    </li>
+                </ol>    
+            </div>
         </div>
 
 
