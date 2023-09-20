@@ -27,27 +27,24 @@ console.log('ciao mondo');
     mounted() {
 
         this.genMailRandom(this.itemsMail);
-
     }, 
 
     methods: {
 
         genMailRandom(itemMail) {
 
-            for (let i = 0; i < itemMail; i++) {
-                
-                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-    
-                .then(response => {
-                  this.randomMail.push(response.data.response);
-                })
-                
-                .catch(error => {
-                  console.log(error);
-                })
-              };
-            
-              console.log(this.randomMail);
+          for (let i = 0; i < itemMail; i++) {
+              
+              axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+  
+              .then(response => {
+                this.randomMail.push(response.data.response);
+              })
+              
+              .catch(error => {
+                console.log(error);
+              })
+          };
 
         }
     }
