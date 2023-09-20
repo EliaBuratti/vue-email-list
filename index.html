@@ -51,10 +51,10 @@
         <div v-if="randomMail.length !== itemsMail" class="loading">
             <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>
         </div>
-        <div class="container mt-5 position-absolute top-0 start-0">
+        <div class="m-5 position-absolute top-0 start-50 translate-middle-x">
             <div class="eb_list text-center">
                 <h1>Generatore di mail Random</h1>
-                <ol v-if="randomMail.length === itemsMail" class="list-group mt-4">
+                <ol v-if="randomMail.length === itemsMail" class="list-group my-4">
                     <li v-for="(mail, index) in randomMail" class="list-group-item d-flex">
                         <span> N° {{index + 1}}</span>
                         <span>{{ mail }}</span>
